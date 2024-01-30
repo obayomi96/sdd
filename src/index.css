@@ -1,0 +1,14 @@
+@import "../node_modules/sal.js/dist/sal.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  color: rgb(27, 25, 25);
+  font-family: "Lato", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
