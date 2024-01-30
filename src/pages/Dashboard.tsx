@@ -23,7 +23,7 @@ function Dashboard() {
             <LogisticsChart />
           </div>
         </div>
-
+        <div className="h-6" />
         <div className="w-full h-auto mt-[50px]">
           <p className="font-[700] text-[20px] pb-4">Product updates</p>
           <div className="w-full flex flex-wrap lg:flex-nowrap justify-start items-center">
