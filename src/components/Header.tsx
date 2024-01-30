@@ -70,8 +70,14 @@ const Header: React.FC<HeaderProps> = ({ loggedIn = true, headerTitle }) => {
             >
               <div className="w-[250px] h-[300px] p-3">
                 <p className="w-full border-b border-[#ddd]">Notifications</p>
-                <div className="text-center mt-4 w-full h-full m-auto">
+                <div className="text-center mt-4 w-full h-full m-auto flex flex-col">
                   <p>Noting to see!</p>
+                  <div className="flex justify-center">
+                    <iframe
+                      title="alert"
+                      src="https://lottie.host/embed/58784211-0bf0-4887-a03d-69479b011a29/uxO3zp7uHL.json"
+                    ></iframe>
+                  </div>
                 </div>
               </div>
             </Menu>
