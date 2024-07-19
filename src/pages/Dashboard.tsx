@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getIpAddressAndNetworkInfo } from "geo-ipify";
 
 import DashboardLayout from "../components/DashboardLayout";
 import NewsUpdateCard from "../components/NewsUpdateCard";
@@ -8,8 +9,34 @@ import LogisticsChart from "../components/LogisticsSummary";
 import IntroCard from "../components/IntroCard";
 
 function Dashboard() {
+  const [networkStatus, setNetworkStatus] = useState<boolean>(false);
+  const [networkProvider, setNetworkProvider] = useState<string>("");
+
+  const handleFetch = async () => {
+    const response: any = await getIpAddressAndNetworkInfo(
+      process.env.REACT_APP_GEO_API_KEY as string
+    );
+    console.log(response);
+    if (response.data) {
+      setNetworkStatus(true);
+      setNetworkProvider(response?.data?.isp);
+    } else {
+      setNetworkStatus(false);
+    }
+  };
+
+  useEffect(() => {
+    handleFetch();
+  }, []);
+
   return (
     <DashboardLayout>
+      {networkStatus && (
+        <div className="w-full px-4 text-center mt-[1.25rem] italic text-base">
+          If your internet is bad, please reset your connection or switch from{" "}
+          {networkProvider}
+        </div>
+      )}
       <div className="p-4 mt-[20px]">
         <IntroCard />
         <div className="w-full flex flex-wrap lg:flex-nowrap items-center justify-between mt-10 mb-20">
