@@ -32,7 +32,7 @@ function Dashboard() {
   return (
     <DashboardLayout>
       {networkStatus && (
-        <div className="w-full px-4 text-center mt-[1.25rem] italic text-base">
+        <div className="w-full px-4 text-center mt-[1.25rem] italic text-base animate-pulse">
           If your internet is bad, please reset your connection or switch from{" "}
           {networkProvider}
         </div>
